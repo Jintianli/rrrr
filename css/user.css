@@ -1,0 +1,234 @@
+* { margin: 0; padding: 0; box-sizing: border-box;}
+body {font-size: 0.32rem; background: #ffe5fd;}
+ul { list-style: none;}
+header { height: 0.9rem; 
+	  background:  #fe599e;
+      display: flex;
+}
+
+.message {
+	 width: 1rem;
+}
+.sys {
+	 width: 1rem;
+	 color: #FFFFFF
+}
+.search {
+	flex: 1;
+	color:  #ffffff;
+}
+
+
+header > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+header > div img {
+	width: 38%;
+	height: auto;
+}
+
+header .sys img {
+	width: 65%;
+}
+
+.user {
+	 height: 3.37rem;
+	 background: url(../img/dt.jpg);
+	 background-size: contain ;
+}
+
+.user_info {
+	display: flex;
+	padding: 0.45rem 0.3rem 0rem 0.34rem;
+}
+
+.user_photo {
+ width: 1.6rem;
+}
+.user_photo img{
+ width: 100%;
+ height: auto;
+ border: 0.06rem solid #fff;
+ border-radius: 0.06rem;
+}
+
+.user_name {
+	flex: 1;
+	margin-left: 0.3rem;
+}	
+
+.user_name b {
+	 font-size: 0.4rem;
+	 line-height: 0.8rem;
+	 display: block;
+}	
+
+.user_update {
+ width: 1.6rem;
+ display: flex;
+ align-items: center;
+ text-align: right;
+
+}
+.user_data {
+	margin-top: 0.3rem;
+	background: rgba(0,0,0,0.2);
+	display: flex;
+	justify-content: space-around;
+	height: 0.95rem;
+	padding:0.26rem 0.2rem;
+	color: #fff;
+	 font-size: 0.3rem;
+}
+
+.user_data >div:nth-child(2) {
+	border-left: 0.02rem solid rgba(255,255,255,0.5);
+	border-right: 0.02rem solid rgba(255,255,255,0.5);
+	padding: 0 0.3rem;
+}
+
+.user_ {
+	border-radius:0.2rem;
+	width:1rem;
+	margin:0 auto;
+	margin-top: 0.35rem;
+	background: #FFFFFF;
+	width: 95%;
+	
+}
+
+.user_ctrl {
+	display: flex;
+	padding-top: 0.25rem;
+}
+
+.user_ctrl > div {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.user_ctrl > div > div{
+	 width: 50%;
+}
+.user_ctrl > div > div img{
+	 width: 100%;
+	 height: auto;
+}
+
+.user_ctr2 {
+	margin-top: 0.35rem;
+	display: flex;
+	padding-bottom: 0.25rem;
+}
+
+.user_ctr2 > div {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.user_ctr2 > div > div{
+	 width: 50%;
+}
+.user_ctr2 > div > div img{
+	 width: 100%;
+	 height: auto;
+}
+
+.user_ctr3 {
+	margin-top: 0.35rem;
+	display: flex;
+	padding-bottom: 0.25rem;
+	padding-top: 0.25rem;
+}
+
+.user_ctr3 > div {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.user_ctr3 > div > div{
+	 width: 50%;
+}
+.user_ctr3 > div > div img{
+	 width: 100%;
+	 height: auto;
+}
+
+
+.user_ctr4 {
+	margin-top: 0.35rem;
+	display: flex;
+	padding-bottom: 0.25rem;
+	padding-top: 0.25rem;
+}
+
+.user_ctr4 > div {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.user_ctr4 > div > div{
+	 width: 100%;
+}
+.user_ctr4 > div > div img{
+	 width: 100%;
+	 height: auto;
+}
+
+
+
+
+
+.user_ctr5 {
+	margin-top: 0.25rem;
+	display: flex;
+	padding-bottom: 0.25rem;
+	padding-top: 0.25rem;
+}
+
+.user_ctr5 > div {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.user_ctr5 > div > div{
+	 width: 100%;
+}
+.user_ctr5 > div > div img{
+	 width: 95%;
+	 height: auto;
+	 margin-left: 0.2rem;
+}
+footer {
+	background: #f4f4f4;
+	border-top: 0.02rem solid #dadada;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	padding: 0.1rem 0;
+}
+footer a {
+	text-decoration: none;
+	color: #555;
+	text-align: center;
+	font-size: 0.24rem;
+}
+footer a img{
+	width: 55%;
+	height: auto;
+}

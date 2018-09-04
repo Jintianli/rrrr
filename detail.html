@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/detail.css"/>
+	</head>
+	<body>
+		<header>
+			<div class="message"  onclick="history.back()">
+				<img src="img/fh.jpg"/></div>
+			<div class="search">
+				商品详情
+			</div>
+			<div class="sys">
+				<a href="shopcar.html">
+					<img src="img/gd.jpg"/>
+				</a>
+			</div>
+		</header>
+		
+		<div id="box">
+		<div>
+		<main>
+			<div class="banner">
+				<img src="img/tx1.gif"/>
+			</div>
+			<div class="title">
+				<p>【买一送三】短袖T恤男 夏季修身款印花韩版T恤 男装上衣 套餐1 鹰白+R黑+K黑+花黑  XL码</p>
+				<em>￥{{obj.price}}.00 <s>￥199.00 </s> <span>手机专享</span></em>
+			</div>
+			<div class="sale">
+				<span>满减</span>
+				<p>满199减40，满399减100</p>
+			</div>
+			<div class="checked">
+				<span class="s_title">已选</span>
+				<p> 套餐1 鹰白+R黑+K黑+花黑  XL码</p>
+			</div>
+			<div class="other">
+				<div class="count">
+					<span class="s_title">数量</span>
+					<div>
+						<button @click="jian()">-</button>
+						<input type="number" v-model="num" min="1" />
+						<button @click="jia()">+</button>
+					</div>
+					<p>库存{{obj.count}}件</p>
+				</div>
+				<div class="count services">
+					<span class="s_title">服务</span>
+					<p>由异次元电商平台发货并提供售后服务</p>
+				</div>
+			</div>
+		</main>
+		
+		<div class="msg">
+			<h2>
+				商品评论 <span>(92613评论) 好评度97%</span>
+			</h2>
+			<div class="msg_content">
+				
+				<div v-for="item in obj.info">
+					<div class="msg_user">
+						<div>{{item.name}}</div>
+						<div>
+							<em>好评</em>
+							<span>{{item.time}}</span>
+						</div>
+					</div>
+					<p>{{item.msg}}</p>
+					<div class="msg_pic">
+						<ul>
+							
+							<li v-for="pic in item.pic">
+								<img :src="pic" />
+							</li>
+
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+			<div class="more">查看更多评论</div>
+		</div>
+		
+		<footer>
+			<div class="collect">收藏</div>
+			<div class="btn">
+				<button @click="addCar()">加入购物车</button>
+			</div>
+			<div class="buy">
+				立即购买
+			</div>
+		</footer>
+		</div>
+		</div>
+		<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+		<script src="vue/dist/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="axios/dist/axios.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el:"#box",
+				data:{
+					obj:{},
+					num:1
+				},
+				created(){
+					var id = location.search.split("=")[1];
+					axios.get("/detail/"+102).then((res)=>{
+						console.log(res)
+						this.obj = res.data;
+					})
+				},
+				methods:{
+					jia(){
+						if(this.num < this.obj.count){
+							this.num++
+						}
+					},
+					jian(){
+						if(this.num > 1){
+							this.num--
+						}
+					},
+					addCar(){
+						var data = {
+							id:this.obj.id,
+							img:this.obj.img,
+							title:this.obj.title,
+							price:this.obj.price,
+							category:this.obj.category,
+							num:this.num,
+							selected:true
+						}
+						if(localStorage.getItem("shopCar")){
+							var res = JSON.parse(localStorage.getItem("shopCar"));
+							var bool = true;
+							for(var i=0;i<res.length;i++){
+								if(res[i].id == data.id){
+									res[i].num+=data.num;
+									bool = false;
+								}
+							}
+							
+							if(bool){
+								res.push(data);
+							}
+							localStorage.setItem("shopCar",JSON.stringify(res))
+							
+						}else{
+							console.log(this.obj)
+							var ary = [data];
+							localStorage.setItem("shopCar",JSON.stringify(ary))
+						}
+						alert("已经加入到购物车")
+					}
+				}
+			})
+		</script>
+	</body>
+</html>
